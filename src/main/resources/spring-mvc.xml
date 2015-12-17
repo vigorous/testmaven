@@ -6,6 +6,8 @@ http://www.springframework.org/schema/context/spring-context.xsd
 http://www.springframework.org/schema/mvc 
 http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+	<mvc:annotation-driven />
+	
 	<!-- 自动扫描controller包下的所有类，使其认为spring mvc的控制器 -->
 	<context:component-scan base-package="sy.controller" />
 
@@ -28,7 +30,8 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	</bean>
 
 	<!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/" p:suffix=".jsp" />
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/html/" p:suffix=".jsp" />
+	<!-- <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver" p:prefix="/html/" p:suffix=".html"/> -->
 
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="defaultEncoding">
@@ -42,4 +45,11 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 		</property>
 	</bean>
 
+	<mvc:resources location="/plugins/" mapping="/plugins/**"></mvc:resources>  
+	<mvc:resources location="/demo/" mapping="/demo/**"></mvc:resources>  
+	<mvc:resources location="/themes/" mapping="/themes/**"></mvc:resources>  
+	<mvc:resources location="/locale/" mapping="/locale/**"></mvc:resources>  
+	<mvc:resources location="/" mapping="/**"></mvc:resources>
+	<mvc:resources location="../" mapping="../**"></mvc:resources>  
+	
 </beans>
