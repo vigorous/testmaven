@@ -27,7 +27,7 @@ public class UserController {
 		System.out.println("showUser...");
 		User u = userService.getUserById(id);
 		request.setAttribute("user", u);
-		return "easyui_demo";
+		return "easyui_demo1";
 	}
 
 }
